@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create issue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container border align-center mt-5" style="border-radius: 5px; box-shadow: 3px 3px 3px gray">
+    <br><br>
+    <h3>Create issue</h3>
+    <br>
+    <form class="m-2" action="#" th:action="@{/saveIssue}" th:object="${issue}" method="post">
+        <div class="row g-3 align-items-center">
+            <label class="col-sm-1 col-form-label">Name: </label>
+            <input type="text" th:field="*{name}" placeholder="issue name" class="form-control mb-4 col-4" required minlength="2"/>
+        </div>
+        <div class="row g-3 align-items-center">
+            <label class="col-sm-1 col-form-label">Author: </label>
+            <input type="text" th:field="*{author}" placeholder="author" class="form-control mb-4 col-4" required minlength="2"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description: </label>
+            <textarea class="form-control" rows="3" type="text" th:field="*{description}"
+                      placeholder="description" required minlength="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-info col-2">Save</button>
+        <a class="btn btn-info col-2" href="/">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
